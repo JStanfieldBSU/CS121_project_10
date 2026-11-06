@@ -15,28 +15,29 @@ class CheckingAccount implements HasMenu{
     start();
   } // end main
 
-  static String menu(){
+  public String menu(){
     return "Account Menu\n\n0) Quit\n1) Check Balance\n2) Make a Deposit\n3) Make a Withdrawal\n\nAction (0-3): ";
   } // end menu
 
-  void start() {
-	  Scanner userInterface = new Scanner(System.in);
+  public void start(){
+    Scanner userInterface = new Scanner(System.in);
     boolean keepGoing = true;
-	  while(keepGoing){
+
+    while(keepGoing){
       System.out.print(menu());
       int input = userInterface.nextInt();
       if(input == 0){
-        System.out.println("Zero");
+        System.out.print("Quitting\n");
         keepGoing = false;
       } // end if
       else if(input == 1){
-        System.out.println("%.2f", getBalance());
+        checkBalance();
       } // end else if
       else if(input == 2){
-        System.out.println("Two");
+        makeDeposit();
       } // end else if
       else if(input == 3){
-        System.out.println("Three");
+        makeWithdrawal();
       } // end else if
     } // end while
   } // end start
@@ -46,7 +47,7 @@ class CheckingAccount implements HasMenu{
   } // end getBalance
 
   String getBalanceString(){
-    return (String)balance;
+    return String.format("$%.2f%n", balance);
   } // end getBalanceString
 
   void setBalance(double balance){
@@ -54,18 +55,23 @@ class CheckingAccount implements HasMenu{
   } // end setBalance
 
   void checkBalance(){
-    System.out.println(getBalance());
+    System.out.println("Checking balance...\nCurrent Balance: " + getBalanceString());
   } // end checkBalance
 
   private double getDouble(){
-    
+    Scanner userInterface = new Scanner(System.in);
+    return userInterface.nextDouble();
   } // end getDouble
 
   void makeDeposit(){
-    
+    System.out.print("Making a deposit...\nHow much to deposit?\n");
+    this.balance += getDouble();
+    System.out.println("New balance: " + getBalanceString());
   } // end makeDeposit
 
   void makeWithdrawal(){
-    
+    System.out.print("Making a withdrawal...\nHow much to withdraw?\n");
+    this.balance -= getDouble();
+    System.out.println("New balance: " + getBalanceString());
   } // end makeWithdrawal
 }
