@@ -1,8 +1,8 @@
 import java.util.*;
 
 abstract class User implements HasMenu, Serializable{
-  String userName = "Alice";
-  String PIN = "0000";
+  String userName;
+  String PIN;
 
   boolean login(){
     Scanner userInterface = new Scanner(System.in);
