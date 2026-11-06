@@ -68,6 +68,10 @@ class SavingsAccount extends CheckingAccount
     double getInterestRate()
   ====================
 ```
+algorithm
+```
+currently, nothing is different than in CheckingAccount
+```
 
 ## User
 ```
