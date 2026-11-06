@@ -25,6 +25,7 @@ class Customer extends User{
   } // end overloaded constructor
 
   public void start(){
+    login();
     Scanner userInterface = new Scanner(System.in);
     boolean keepGoing = true;
 
