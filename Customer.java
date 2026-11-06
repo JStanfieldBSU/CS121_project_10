@@ -2,11 +2,59 @@ class Customer extends User{
   CheckingAccount checking;
   SavingsAccount savings;
 
-  Customer();
-  Customer(userName, PIN);
-  void main();
-  void start();
-  String menu();
-  void changePIN();
-  String getReport()
-}
+  void main(){
+    start();
+  }
+
+  Customer(){
+    checking = new CheckingAccount();
+    savings = new SavingsAccount();
+
+    setUserName("Alice");
+    setPIN("0000");
+  } // end constructor
+
+  Customer(userName, PIN){
+    checking = new CheckingAccount();
+    savings = new SavingsAccount();
+
+    setUserName(userName);
+    setPIN(PIN);
+  } // end overloaded constructor
+
+  void start(){
+    Scanner userInterface = new Scanner(System.in);
+    boolean keepGoing = true;
+
+    while(keepGoing){
+      System.out.print(menu());
+      int input = userInterface.nextInt();
+      if(input == 0){
+        System.out.print("Quitting\n");
+        keepGoing = false;
+      } // end if
+      else if(input == 1){
+        System.out.print("Checking Account\n");
+      } // end else if
+      else if(input == 2){
+        System.out.print("Savings Account\n");
+      } // end else if
+      else if(input == 3){
+        System.out.print("Change PIN\n");
+      } // end else if
+    } // end while
+
+  }
+
+  String menu(){
+    return "Customer Menu\n\n0) Quit\n1) Manage Checking Account\n2) Manage Savings Account\n3) Change PIN\n\nAction (0-3): ";
+  }
+
+  void changePin(){
+    // placeholder
+  }
+
+  String getReport(){
+    return "Placeholder";
+  } // end getReport
+} // end Customer
