@@ -89,6 +89,14 @@ abstract class User implements HasMenu, Serializable
     abstract string getReport()
   ====================
 ```
+algorithm
+```
+login - prompt user for two inputs, username and PIN, then pass them to overloaded login
+
+login(user, pin) - return the value of the comparison of user and username as well as pass and PIN
+
+getters and setters
+```
 
 ## Customer
 ```
@@ -105,6 +113,22 @@ class Customer extends User
     void changePin()
     string getReport()
   ====================
+```
+algorithm
+```
+main - call start
+
+Constructor - instantiate the checking and saving accounts and set the user and pin to placeholders
+
+Constructor(user, pin) - instantiate the checking and saving accounts and set the user and pin to the provided values
+
+start - call login(). while keep going, show the menu, accept input to the menu. input 0, keepgoing false. input 1, call the start of checking. input 2, call the start of savings. input 3, call changePin.
+
+menu - returns the text for the menu.
+
+changePin - currently nonfunctional. will prompt user for new input of pin and change the pin to the new value.
+
+getReport - non functional.
 ```
 
 ## Admin
