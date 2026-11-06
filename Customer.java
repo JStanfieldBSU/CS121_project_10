@@ -47,7 +47,6 @@ class Customer extends User{
         System.out.println("Change PIN\n");
       } // end else if
     } // end while
-
   }
 
   public String menu(){
