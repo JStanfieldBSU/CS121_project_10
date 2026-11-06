@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.Serializable;
 
 abstract class User implements HasMenu, Serializable{
   String userName;
@@ -14,11 +15,11 @@ abstract class User implements HasMenu, Serializable{
     return login(user, pass);
   } // end login
 
-  boolean login(userName, PIN){
-    return this.userName.equals(userName) && this.PIN.equals(PIN)
+  boolean login(String userName, String PIN){
+    return this.userName.equals(userName) && this.PIN.equals(PIN);
   } // end login(userName, PIN)
 
-  void setUserName(userName){
+  void setUserName(String userName){
     this.userName = userName;
   }
 
@@ -26,7 +27,7 @@ abstract class User implements HasMenu, Serializable{
     return this.userName;
   }
 
-  void setPIN(PIN){
+  void setPIN(String PIN){
     this.PIN = PIN;
   }
 

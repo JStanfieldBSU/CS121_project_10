@@ -1,3 +1,5 @@
+import java.util.*;
+
 class Customer extends User{
   CheckingAccount checking;
   SavingsAccount savings;
@@ -14,7 +16,7 @@ class Customer extends User{
     setPIN("0000");
   } // end constructor
 
-  Customer(userName, PIN){
+  Customer(String userName, String PIN){
     checking = new CheckingAccount();
     savings = new SavingsAccount();
 
@@ -22,7 +24,7 @@ class Customer extends User{
     setPIN(PIN);
   } // end overloaded constructor
 
-  void start(){
+  public void start(){
     Scanner userInterface = new Scanner(System.in);
     boolean keepGoing = true;
 
@@ -34,19 +36,21 @@ class Customer extends User{
         keepGoing = false;
       } // end if
       else if(input == 1){
-        System.out.print("Checking Account\n");
+        System.out.println("Checking Account\n");
+        checking.start();
       } // end else if
       else if(input == 2){
-        System.out.print("Savings Account\n");
+        System.out.println("Savings Account\n");
+        savings.start();
       } // end else if
       else if(input == 3){
-        System.out.print("Change PIN\n");
+        System.out.println("Change PIN\n");
       } // end else if
     } // end while
 
   }
 
-  String menu(){
+  public String menu(){
     return "Customer Menu\n\n0) Quit\n1) Manage Checking Account\n2) Manage Savings Account\n3) Change PIN\n\nAction (0-3): ";
   }
 
