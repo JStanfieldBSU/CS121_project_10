@@ -7,7 +7,7 @@ abstract class User implements HasMenu, Serializable{
   } // end login
 
   boolean login(userName, PIN){
-    if((userName == this.userName) && (PIN == this.PIN)){
+    if(this.userName.equals(userName) && this.PIN.equals(PIN)){
       return true;
     } // end if
     else{
