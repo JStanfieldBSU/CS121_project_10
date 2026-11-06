@@ -40,6 +40,20 @@ main - call start
 menu - return the menu text
 
 start - while keepgoing, call menu, accept input based on menu options, and call respective getter or setter.
+
+getBalance - return the double balance
+
+getBalanceString - turn getBalance into a string formatted in $0.00 style
+
+setBalance - change the balance variable
+
+checkBalance - call getBalanceString and print it
+
+getDouble - call input for deposit/withdraw and return it
+
+void makeDeposit -  call get double and then add it to balance, then print the new balance
+
+void makeWithdrawal - call get double and then subtract it from balance, then print the new balance
 ```
 
 ## SavingsAccount
